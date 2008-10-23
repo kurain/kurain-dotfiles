@@ -5,7 +5,8 @@ CURRENT = Dir.pwd
 Dir.chdir HOME
 dotfiles = FileList[".*"]
 dotfiles.exclude(/\.$/,
-                 ".ssh"
+                 /history$/,
+                 ".ssh",
                  ".DS_Store",
                  ".Trash")
 dotfiles.each{|file|

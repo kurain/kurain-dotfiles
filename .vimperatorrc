@@ -1,0 +1,19 @@
+" ブラウザタイトルの変更
+
+" スクロールの端などの際に出るbeepをoff
+set nobeep
+
+" j/k でのスクロール幅を 1行 から 3行 に変更
+map j 3<C-e>
+map k 3<C-y>
+
+" Backspace に戻るを割り当て
+map <BS> <A-Left>
+
+" Shift + ← → で現在のタブの位置変更
+map <S-Right> :tabmove! +1<CR>
+map <S-Left>  :tabmove! -1<CR>
+
+" 読み込んだ事を出力
+echo .vimperatorrc sourced
+
