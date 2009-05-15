@@ -17,3 +17,4 @@ map <S-Left>  :tabmove! -1<CR>
 " 読み込んだ事を出力
 echo .vimperatorrc sourced
 
+javascript if (typeof hBookmark != 'undefined') liberator.loadScript('chrome://hatenabookmark/content/vimperator/plugin/hatenabookmark.js', {__proto__: this});

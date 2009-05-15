@@ -1,0 +1,31 @@
+Release Announcement
+CC Mode Version 5.28
+Martin Stjernholm
+<mailto:bug-cc-mode@gnu.org>
+
+This message announces the availability of a new version of CC Mode, a
+GNU Emacs mode for editing C (ANSI and K&R), C++, Objective-C, Java,
+CORBA's IDL, and Pike code.
+
+A list of user visible changes is detailed in the NEWS file and in the
+URL listed below.  More information, including links to download the
+source, are available on the CC Mode web page:
+
+    <http://cc-mode.sourceforge.net/>
+
+There is also a link to the CC Mode announcement mailing list, a
+moderated list that you can join to get future release announcements.
+Please see this page for more information on this mailing list:
+
+    <http://lists.sourceforge.net/mailman/listinfo/cc-mode-announce>
+
+Send email correspondence to
+
+    bug-cc-mode@gnu.org
+
+Note that the old address, cc-mode-help@python.org is still active,
+but its use is discouraged.
+
+For a list of changes please see
+
+    <http://cc-mode.sourceforge.net/changes-528.php>
