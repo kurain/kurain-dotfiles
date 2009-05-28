@@ -46,12 +46,6 @@ copyfiles = FileList[".*"]
 copyfiles.exclude(/\.$/,".git",".exclude.dotfiles",".include.dotfiles")
 CLEAN.include(copyfiles)
 
-task :will_import do |t|
-  dotfiles.each{|file_name|
-    puts file_name
-  }
-end
-
 task :import => dotfiles
 
 rule(/^\./ => [
@@ -59,9 +53,9 @@ rule(/^\./ => [
                 ]) do |t|
   dest = File.join(CURRENT,t.name)
   if File.ftype(t.source) == "directory"
-    mkdir_p dest, {:verbose => true, :noop => true}
+    mkdir_p dest, {:verbose => true}
   else
-    install t.source, dest, {:verbose => true, :noop => true}
+    install t.source, dest, {:verbose => true}
   end
 end
 
