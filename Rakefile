@@ -1,32 +1,67 @@
 require 'rake/clean'
 HOME = ENV["HOME"]
 CURRENT = Dir.pwd
+includes = []
+excludes = []
+
+if FileTest.exist?(".exclude.dotfiles")
+  File.open(".exclude.dotfiles") do |io|
+    io.each do |line|
+      line.chomp!
+      next if line == ""
+      excludes.push(line)
+    end
+  end
+end
+
+if FileTest.exist?(".include.dotfiles")
+  File.open(".include.dotfiles") do |io|
+    io.each do |line|
+      line.chomp!
+      next if line == ""
+      includes.push(line)
+    end
+  end
+end
 
 Dir.chdir HOME
-dotfiles = FileList[".*"]
+if includes.length > 0
+  dotfiles = FileList[*includes]
+else
+  dotfiles = FileList[".*"]
+end
 dotfiles.exclude(/\.$/,
                  /history$/,
                  ".ssh",
                  ".DS_Store",
                  ".Trash")
-dotfiles.each{|file|
+dotfiles.exclude(*excludes)
+
+dotfiles.each do |file|
   dotfiles.include(FileList[File.join(file,"**","*")])
-}
+end
+
 Dir.chdir CURRENT
 copyfiles = FileList[".*"]
 copyfiles.exclude(/\.$/)
 CLEAN.include(dotfiles)
 
+task :will_import do |t|
+  dotfiles.each{|file_name|
+    puts file_name
+  }
+end
+
 task :import => dotfiles
 
 rule(/^\./ => [
-                proc{|file_name| File.join(HOME,file_name)}
-               ]) do |t|
+                 proc{|file_name| File.join(HOME,file_name)}
+                ]) do |t|
   dest = File.join(CURRENT,t.name)
   if File.ftype(t.source) == "directory"
-    mkdir_p dest, {:verbose => true}
+    mkdir_p dest, {:verbose => true, :noop => true}
   else
-    install t.source, dest, {:verbose => true}
+    install t.source, dest, {:verbose => true, :noop => true}
   end
 end
 
