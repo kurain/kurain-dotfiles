@@ -1,3 +1,15 @@
 [user]
 	name = Ryutaro Kurai
 	email = ryu.kurai@gmail.com
+[alias]
+        st = status
+        di = diff
+        co = checkout
+        ci = commit
+        br = branch
+[color]
+	diff = auto
+	status = auto
+	branch = auto
+[core]
+	excludesfile = /Users/ryu/.gitignore
