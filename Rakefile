@@ -43,8 +43,8 @@ end
 
 Dir.chdir CURRENT
 copyfiles = FileList[".*"]
-copyfiles.exclude(/\.$/)
-CLEAN.include(dotfiles)
+copyfiles.exclude(/\.$/,".git",".exclude.dotfiles",".include.dotfiles")
+CLEAN.include(copyfiles)
 
 task :will_import do |t|
   dotfiles.each{|file_name|
