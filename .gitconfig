@@ -12,4 +12,4 @@
 	status = auto
 	branch = auto
 [core]
-	excludesfile = /Users/ryu/.gitignore
+	excludesfile = /home/ryu/.gitignore

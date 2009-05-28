@@ -43,7 +43,7 @@ end
 
 Dir.chdir CURRENT
 copyfiles = FileList[".*"]
-copyfiles.exclude(/\.$/,".git",".exclude.dotfiles",".include.dotfiles")
+copyfiles.exclude(/\.$/,/^\.git$/,".exclude.dotfiles",".include.dotfiles")
 CLEAN.include(copyfiles)
 
 task :import => dotfiles
