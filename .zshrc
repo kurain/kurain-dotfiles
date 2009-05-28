@@ -5,7 +5,6 @@ RPROMPT="[%~]"
 SPROMPT="correct: %R -> %r ? " 
 
 export LANG=ja_JP.UTF-8
-source .profile
 
 HISTFILE=~/.zsh_history
 HISTSIZE=10000
