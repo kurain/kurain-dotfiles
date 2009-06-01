@@ -6,6 +6,10 @@ SPROMPT="correct: %R -> %r ? "
 
 export LANG=ja_JP.UTF-8
 
+keychain --timeout 30 ~/.ssh/id_dsa  # 秘密鍵
+source ~/.keychain/$HOSTNAME-sh
+
+
 HISTFILE=~/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
@@ -24,3 +28,6 @@ setopt auto_pushd
 setopt correct
 setopt list_packed
 setopt nolistbeep
+
+PATH=$HOME/bin:$PATH
+export PATH

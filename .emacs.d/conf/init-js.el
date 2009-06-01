@@ -1,3 +1,8 @@
+;; js2-mode
+(autoload 'js2-mode "js2" nil t)
+(add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
+
+
 (require 'flymake)
 
 ;; flymake for javascript
@@ -25,4 +30,4 @@
   (setq flymake-err-line-patterns flymake-js-err-line-patterns)
   (flymake-mode t))
 
-(add-hook 'javascript-mode-hook '(lambda () (flymake-js-load)))
+(add-hook 'js2-mode-hook '(lambda () (flymake-js-load)))
