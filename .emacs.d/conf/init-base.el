@@ -192,3 +192,8 @@
                              (when (equal line (line-number-at-pos))
                                (previous-error)))))
 (global-set-key "\C-cd" 'flymake-display-err-menu-for-current-line)
+
+;;鬼軍曹
+(load "drill-instructor")
+(setq drill-instructor-global t)
+
