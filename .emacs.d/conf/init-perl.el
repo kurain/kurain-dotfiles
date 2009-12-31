@@ -164,3 +164,69 @@
   (save-excursion (mark-defun)
                     (perltidy-region)))
 
+
+;;Auto Insert Template
+(defun split-to-list (s str)
+  (if (null str)
+    nil
+    (let ((b (string-match (concat "^[" s "]") str))
+          (str (replace-regexp-in-string (concat "^[" s "]") "" str)))
+      (let ((sub 
+             (if (string-match
+                  (concat "^\\([^" s "]+\\)\\(?:[" s "]+\\(.*\\)\\)?$") str)
+                 (cons (match-string 1 str)
+                       (split-to-list s (match-string 2 str)))
+               nil)))
+        (if b (cons "" sub) sub)))))
+
+
+(defun join-to-string (s list)
+  (if (consp list)
+      (if (null (cdr list))
+          (car list)
+        (concat (car list) s (join-to-string s (cdr list))))
+    (if (null list) "" list)))
+
+(defun my-template () ;; by higepon
+  (mapc #'(lambda(c)
+            (progn
+              (goto-char (point-min))
+              (replace-string (car c) (funcall (cdr c)) nil)))
+        template-replacement-alist)
+  (goto-char (point-max)))
+(setq template-replacement-alist nil)
+
+; auto-insert                                                                   
+(require 'autoinsert)
+(add-hook 'find-file-not-found-hooks 'auto-insert)
+(setq auto-insert-directory "~/.emacs.d/insert/")
+(setq auto-insert-query nil)
+(setq auto-insert-alist nil)
+
+;; auto-insert package name                                                     
+(setq auto-insert-alist
+      (append '(("\\.pm$" . ["insert.pm" my-template]))
+              auto-insert-alist))
+(setq template-replacement-alist
+      (append
+       '(("%Perl-package%" . (lambda () (pm2package (buffer-file-name)))))
+       template-replacement-alist))
+
+(defun pm2package (fname)
+  (let ((lib (findlib (split-to-list "/" fname))))
+    (replace-regexp-in-string
+     "\\.pm$"
+     ""
+     (if (consp lib) (join-to-string "::" (cdr lib)) lib))))
+
+(defun findlib (dirs)
+  (if (consp dirs)
+      (let ((subdirs (findlib (cdr dirs))))
+        (if (and (consp subdirs) (string= (car subdirs) "lib"))
+            subdirs
+          (cons (car dirs) subdirs)))
+    dirs))
+(defadvice flymake-post-syntax-check
+  (after ad-flymake-show-report-on-minibuffer last activate)
+  (flymake-display-err-minibuf))
+

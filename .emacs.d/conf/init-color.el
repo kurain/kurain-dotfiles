@@ -19,6 +19,7 @@
       (setq develock-max-column-plist
             (list 'java-mode  90
                   'jde-mode   90
+                  'j2-mode nil
                   'emacs-lisp-mode 90
                   'lisp-interaction-mode 90
                   'html-mode  nil
