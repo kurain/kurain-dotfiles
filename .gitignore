@@ -16,3 +16,5 @@
 tags
 Thumbs.db
 .fuse_*
+.zcompdump
+.zsh_history*
