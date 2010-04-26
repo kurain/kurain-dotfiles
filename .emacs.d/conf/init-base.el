@@ -17,7 +17,7 @@
 (color-theme-dark-laptop)
 
 ;;; ツールバーを消す
-(tool-bar-mode 0)
+;;(tool-bar-mode 0)
 
 ;;tab,全角を目立たせる
 ;; (defface my-face-b-1 '((t (:background "medium aquamarine"))) nil)
