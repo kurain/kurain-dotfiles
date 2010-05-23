@@ -37,9 +37,10 @@ setopt correct
 setopt list_packed
 setopt nolistbeep
 
-PATH=$HOME/bin:$PATH
+PATH=$HOME/tools/android-sdk-mac_86/tools:$HOME/bin:$PATH
 export PATH=$HOME/perl/current/bin::$PATH
 export MANPATH=$HOME/perl/current/man:$MANPATH
 export PERL5LIB=$HOME/perl/current/lib/perl5:$PERL5LIB
 export PERL5LIB=$HOME/perl/current/lib/perl5/i386-linux-thread-multi:$HOME/perl/current/lib/perl5/site_perl:$HOME/perl/current/lib/perl5:$PERL5LIB
 
+eval $(perl -I$HOME/perl5/lib/perl5 -Mlocal::lib)

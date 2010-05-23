@@ -20,7 +20,7 @@
 (load "init-ruby")
 (load "init-yatex")
 (load "init-js")
-
+(load "init-objc")
 
 
 
