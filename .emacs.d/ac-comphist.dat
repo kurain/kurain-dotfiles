@@ -1,0 +1,16 @@
+((("file-link" .
+   [0 0 0 0 0 0 0 0 1])
+  ("own" .
+   [1 0 0])
+  ("butlast" .
+   [0 0 0 0 0 0 1])
+  ("@synthesize" .
+   [0 0 1 0 0 0 0 0 0 0 0])
+  ("letView" .
+   [0 0 0 0 1 0 0])
+  ("deflateSetDictionary" .
+   [0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("delegate" .
+   [0 0 0 0 0 1 0 0])
+  ("navigationController" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])))

@@ -9,9 +9,12 @@
 (load "init-color")
 
 ;; 補完機能
-(require 'auto-complete)
-(global-auto-complete-mode t)
-(load "init-complicate")
+(load "init-autocomplete")
+
+;; 補完機能 old
+;;(require 'auto-complete)
+;;(global-auto-complete-mode t)
+;;(load "init-complicate")
 
 ;;;; 各言語別設定ファイル
 (load "init-perl")
