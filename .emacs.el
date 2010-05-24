@@ -5,6 +5,9 @@
 ;;標準の画面設定
 (load "init-base")
 
+;;スペースなどを強調
+(load "init-color")
+
 ;; 補完機能
 (require 'auto-complete)
 (global-auto-complete-mode t)
