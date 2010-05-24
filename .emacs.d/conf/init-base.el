@@ -1,3 +1,46 @@
+; 言語を日本語にする
+(set-language-environment 'Japanese)
+; 極力UTF-8とする
+(prefer-coding-system 'utf-8)
+
+;; Command-Key and Option-Key
+(setq ns-command-modifier (quote meta))
+(setq ns-alternate-modifier (quote super))
+
+;; font for mac
+;; (add-to-list 'default-frame-alist '(font . "fontset-menlokakugo"))
+;; (set-fontset-font "fontset-menlokakugo"
+;;                   'unicode
+;;                   (font-spec :family "Hiragino Kaku Gothic ProN" :size 16)
+;;                   nil
+;;                   'append)
+;; (create-fontset-from-ascii-font "Menlo-14:weight=normal:slant=normal" nil "menlokakugo")
+
+(when (>= emacs-major-version 23)
+ (set-face-attribute 'default nil
+                     :family "monaco"
+                     :height 140)
+ (set-fontset-font
+  (frame-parameter nil 'font)
+  'japanese-jisx0208
+  '("Hiragino Maru Gothic Pro" . "iso10646-1"))
+ (set-fontset-font
+  (frame-parameter nil 'font)
+  'japanese-jisx0212
+  '("Hiragino Maru Gothic Pro" . "iso10646-1"))
+ (set-fontset-font
+  (frame-parameter nil 'font)
+  'mule-unicode-0100-24ff
+  '("monaco" . "iso10646-1"))
+ (setq face-font-rescale-alist
+      '(("^-apple-hiragino.*" . 1.2)
+        (".*osaka-bold.*" . 1.2)
+        (".*osaka-medium.*" . 1.2)
+        (".*courier-bold-.*-mac-roman" . 1.0)
+        (".*monaco cy-bold-.*-mac-cyrillic" . 0.9)
+        (".*monaco-bold-.*-mac-roman" . 0.9)
+        ("-cdac$" . 1.3))))
+
 ;;load-path 追加
 (setq load-path (cons "/usr/share/emacs/site-lisp" load-path))
 
