@@ -28,6 +28,8 @@
 ;;スペースなどを強調
 (load "init-color")
 
+(load "init-anything")
+
 ;; 補完機能
 (load "init-autocomplete")
 
