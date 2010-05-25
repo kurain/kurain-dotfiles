@@ -153,7 +153,7 @@
 (add-hook 'cperl-mode-hook 'flymake-perl-load)
 
 
-;;perl-Tyidy
+;;perl-Tidy
 (defun perltidy-region ()
   "Run perltidy on the current region."
   (interactive)
