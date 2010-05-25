@@ -16,7 +16,7 @@
 ;;                   'append)
 ;; (create-fontset-from-ascii-font "Menlo-14:weight=normal:slant=normal" nil "menlokakugo")
 
-(when (>= emacs-major-version 23)
+(when (and (>= emacs-major-version 23) (osx?))
  (set-face-attribute 'default nil
                      :family "monaco"
                      :height 140)
